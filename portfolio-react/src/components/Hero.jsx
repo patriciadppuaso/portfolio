@@ -6,24 +6,25 @@ export default function Hero() {
       <div className="container mx-auto px-6 grid gap-8 md:grid-cols-2 items-center">
         <div className="text-center md:text-left">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Hi, I'm Patricia
+            Hi, I'm Patricia — Frontend Engineer
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto md:mx-0 mb-6">
-            I build modern web applications and clean UI experiences. I focus on
-            accessible, responsive design and fast, maintainable frontends.
+            I design and ship polished mobile and web experiences using React
+            and Flutter. I care about accessibility, performance, and delightful
+            interactions that help people get things done.
           </p>
           <div className="flex items-center justify-center md:justify-start gap-4">
             <a
               href="#projects"
               className="px-6 py-3 bg-blue-600 text-white rounded-md shadow hover:bg-blue-700 transition"
             >
-              See Projects
+              View work
             </a>
             <a
               href="#contact"
               className="px-6 py-3 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition"
             >
-              Get in touch
+              Contact me
             </a>
           </div>
         </div>

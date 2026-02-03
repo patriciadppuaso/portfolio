@@ -10,9 +10,9 @@ export default function Projects() {
             key={p.id}
             className="bg-white rounded-lg shadow p-5 hover:shadow-lg transform hover:-translate-y-1 transition"
           >
-            <div className="h-36 bg-gray-100 rounded-md mb-4 flex items-center justify-center">
+            {/* <div className="h-36 bg-gray-100 rounded-md mb-4 flex items-center justify-center">
               <span className="text-gray-400">Image</span>
-            </div>
+            </div> */}
             <h3 className="font-semibold text-lg mb-2">{p.title}</h3>
             <p className="text-gray-600 mb-3">{p.description}</p>
             <div className="flex flex-wrap gap-2 mb-4">

@@ -24,10 +24,16 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-12 flex flex-col items-center">
-      <div className="w-full max-w-xl px-4">
-        <h2 className="text-2xl font-semibold mb-4 text-left">Contact</h2>
-        <form onSubmit={handleSubmit} className="w-full">
+    <section id="contact" className="py-12">
+      <div className="container mx-auto px-4">
+        <h2 className="text-2xl font-semibold mb-2">Contact</h2>
+        <p className="text-gray-700 max-w-2xl">
+          I'm open to new opportunities and freelance work. Fill out the form below or
+          email me and I'll respond within 2 business days.
+        </p>
+      </div>
+      <div className="w-full max-w-xl px-4 mx-auto mt-6">
+        <form onSubmit={handleSubmit} className="w-full" aria-label="Contact form">
           <label className="block mb-3">
             <span className="text-sm text-gray-700">Name</span>
             <input
@@ -85,6 +91,9 @@ export default function Contact() {
               {status.msg}
             </p>
           )}
+          <p className="mt-3 text-xs text-gray-500">
+            I respond within 48 hours. Your message will not be shared — this site only uses messages to contact me.
+          </p>
         </form>
       </div>
     </section>

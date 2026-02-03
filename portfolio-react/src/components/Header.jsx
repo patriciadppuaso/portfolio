@@ -25,25 +25,33 @@ export default function Header() {
             Contact
           </a>
         </nav>
-        <div className="md:hidden">
-          <button
-            aria-label="Open menu"
-            className="p-2 rounded hover:bg-gray-100"
+        <div className="flex items-center gap-3">
+          <a
+            href="/resume.pdf"
+            className="hidden md:inline-block px-3 py-2 text-sm text-gray-700 border rounded hover:bg-gray-50"
           >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="text-gray-700"
+            Resume
+          </a>
+          <div className="md:hidden">
+            <button
+              aria-label="Open menu"
+              className="p-2 rounded hover:bg-gray-100"
             >
-              <path d="M3 12h18M3 6h18M3 18h18" />
-            </svg>
-          </button>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="text-gray-700"
+              >
+                <path d="M3 12h18M3 6h18M3 18h18" />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </header>
