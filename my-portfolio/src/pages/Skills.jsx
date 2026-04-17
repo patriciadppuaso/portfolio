@@ -9,16 +9,15 @@ export default function Skills() {
       skills: [
         "React",
         "TypeScript",
-        "Three.js",
         "Tailwind CSS",
-        "Next.js",
         "Framer Motion",
+        "Flutter",
       ],
     },
     {
       title: "Backend & Systems",
       description: "Architecting scalable APIs, databases, and microservices.",
-      skills: ["Node.js", "Rust", "PostgreSQL", "GraphQL", "Python", "Redis"],
+      skills: ["Node.js", "Python", "Firebase", "MongoDB", "MySQL"],
     },
     {
       title: "Cloud & Infrastructure",
@@ -30,7 +29,7 @@ export default function Skills() {
         "Kubernetes",
         "CI/CD Pipelines",
         "Vercel",
-        "Linux",
+        "Render",
       ],
     },
     {
@@ -43,6 +42,7 @@ export default function Skills() {
         "SEO Architecture",
         "Market Ops",
         "Agile",
+        "FDD",
       ],
     },
   ];
