@@ -1,26 +1,29 @@
 export default function Header() {
   return (
-    <header className="bg-white shadow-sm">
+    <header className="bg-surface shadow-sm">
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#" className="text-xl font-semibold tracking-tight">
+        <a
+          href="#"
+          className="text-xl font-semibold tracking-tight text-primary"
+        >
           Patricia Puaso
         </a>
         <nav className="space-x-2 text-sm hidden md:flex">
           <a
             href="#projects"
-            className="px-3 py-2 rounded hover:bg-gray-100 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
+            className="px-3 py-2 rounded hover:bg-surface text-muted focus:outline-none focus:ring-2 focus:ring-white"
           >
             Projects
           </a>
           <a
             href="#about"
-            className="px-3 py-2 rounded hover:bg-gray-100 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
+            className="px-3 py-2 rounded hover:bg-surface text-muted focus:outline-none focus:ring-2 focus:ring-white"
           >
             About
           </a>
           <a
             href="#contact"
-            className="px-3 py-2 rounded hover:bg-gray-100 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
+            className="px-3 py-2 rounded hover:bg-surface text-muted focus:outline-none focus:ring-2 focus:ring-white"
           >
             Contact
           </a>
@@ -28,14 +31,14 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <a
             href="/resume.pdf"
-            className="hidden md:inline-block px-3 py-2 text-sm text-gray-700 border rounded hover:bg-gray-50"
+            className="hidden md:inline-block px-3 py-2 text-sm text-muted border rounded hover:bg-surface"
           >
             Resume
           </a>
           <div className="md:hidden">
             <button
               aria-label="Open menu"
-              className="p-2 rounded hover:bg-gray-100"
+              className="p-2 rounded hover:bg-surface"
             >
               <svg
                 width="20"
@@ -46,7 +49,7 @@ export default function Header() {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="text-gray-700"
+                className="text-muted"
               >
                 <path d="M3 12h18M3 6h18M3 18h18" />
               </svg>

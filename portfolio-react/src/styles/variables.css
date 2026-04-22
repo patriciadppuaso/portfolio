@@ -1,18 +1,18 @@
 :root {
   /* Color palette */
-  --bg: #f6f7fb;
-  --surface: #ffffff;
-  --muted: #6b7280;
-  --text: #0f1724;
-  --accent: #0ea5ff;
-  --accent-600: #0284c7;
+  --bg: #050505;
+  --surface: #0f0f0f;
+  --muted: #9aa0a6;
+  --text: #e6e6e6;
+  --accent: #e6e6e6;
+  --accent-600: #bdbdbd;
 
   /* Spacing / shapes */
   --rounded: 14px;
   --radius-sm: 8px;
 
   /* Elevation */
-  --shadow: 0 8px 30px rgba(16, 24, 40, 0.08);
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
 
   /* Typography */
   --font-sans:
