@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import Draggable from "react-draggable";
 
 const RetroPortfolio = () => {
   // Window States
@@ -31,6 +32,12 @@ const RetroPortfolio = () => {
   const startMenuRef = useRef(null);
   const startButtonRef = useRef(null);
 
+  const welcomeRef = useRef(null);
+  const skillsRef = useRef(null);
+  const experienceRef = useRef(null);
+  const worksRef = useRef(null);
+  const cmdRef = useRef(null);
+
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
@@ -60,7 +67,7 @@ const RetroPortfolio = () => {
   }, [isStartMenuOpen]);
 
   const toggleStartMenu = () => setIsStartMenuOpen(!isStartMenuOpen);
-
+  console.log(isStartMenuOpen);
   // Paint Toolbar Icons
   const paintTools = [
     "star",
@@ -176,6 +183,10 @@ const RetroPortfolio = () => {
     }
   };
 
+  const stopDrag = (e) => {
+    e.stopPropagation();
+  };
+
   return (
     <div className={isDarkMode ? "dark" : ""}>
       <div className="desktop-bg h-[100dvh] w-full font-body-md overflow-hidden flex flex-col relative select-none transition-colors duration-200">
@@ -264,10 +275,16 @@ const RetroPortfolio = () => {
           {/* WINDOW 1: WELCOME.EXE */}
           {/* ========================================== */}
           {isWelcomeOpen && (
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 p-4">
-              <div className="pointer-events-auto w-full max-w-2xl window-bevel shadow-[4px_4px_0px_#000000] flex flex-col max-h-full overflow-hidden">
-                {/* Window Title Bar */}
-                <div className="h-7 title-bar flex items-center justify-between px-1 m-1 shrink-0">
+            <Draggable
+              nodeRef={welcomeRef}
+              handle=".drag-handle"
+              bounds="parent"
+            >
+              <div
+                ref={welcomeRef}
+                className="absolute top-[10vh] left-[2.5vw] sm:top-[15vh] sm:left-[calc(50vw-300px)] w-[95vw] sm:w-[600px] window-bevel shadow-[4px_4px_0px_#000000] flex flex-col max-h-[80vh] overflow-hidden bg-[color:var(--os-bg)] z-10 pointer-events-auto"
+              >
+                <div className="drag-handle cursor-move h-7 title-bar flex items-center justify-between px-1 m-1 shrink-0">
                   <div className="flex items-center gap-2 px-1">
                     <span className="material-symbols-outlined text-sm">
                       desktop_windows
@@ -277,19 +294,30 @@ const RetroPortfolio = () => {
                     </span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <button className="w-5 h-5 win95-raised flex items-center justify-center hover:brightness-110">
+                    <button
+                      onClick={() => setIsWelcomeOpen(false)}
+                      onMouseDown={stopDrag}
+                      onTouchStart={stopDrag}
+                      className="w-5 h-5 win95-raised flex items-center justify-center hover:brightness-110 active:translate-x-px active:translate-y-px"
+                    >
                       <span className="material-symbols-outlined text-[10px] font-bold">
                         minimize
                       </span>
                     </button>
-                    <button className="w-5 h-5 win95-raised flex items-center justify-center hover:brightness-110">
+                    <button
+                      onMouseDown={stopDrag}
+                      onTouchStart={stopDrag}
+                      className="w-5 h-5 win95-raised flex items-center justify-center hover:brightness-110 active:translate-x-px active:translate-y-px"
+                    >
                       <span className="material-symbols-outlined text-[10px] font-bold">
                         check_box_outline_blank
                       </span>
                     </button>
                     <button
                       onClick={() => setIsWelcomeOpen(false)}
-                      className="w-5 h-5 win95-raised flex items-center justify-center hover:brightness-110 ml-1"
+                      onMouseDown={stopDrag}
+                      onTouchStart={stopDrag}
+                      className="w-5 h-5 win95-raised flex items-center justify-center hover:brightness-110 ml-1 active:translate-x-px active:translate-y-px"
                     >
                       <span className="material-symbols-outlined text-[10px] font-bold">
                         close
@@ -368,16 +396,23 @@ const RetroPortfolio = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </Draggable>
           )}
 
           {/* ========================================== */}
           {/* WINDOW 2: EXPERIENCE.TXT */}
           {/* ========================================== */}
           {isExperienceOpen && (
-            <div className="absolute top-12 left-8 sm:top-20 sm:left-24 flex items-center justify-center z-20">
-              <div className="w-[85vw] sm:w-[500px] window-bevel shadow-[4px_4px_0px_#000000] flex flex-col max-h-[75vh] overflow-hidden bg-[color:var(--os-bg)]">
-                <div className="h-7 title-bar flex items-center justify-between px-1 m-1 shrink-0">
+            <Draggable
+              nodeRef={experienceRef}
+              handle=".drag-handle"
+              bounds="parent"
+            >
+              <div
+                ref={experienceRef}
+                className="absolute top-4 sm:top-10 left-2 sm:left-[20%] w-[95vw] sm:w-[600px] window-bevel shadow-[4px_4px_0px_#000000] flex flex-col max-h-[80vh] overflow-hidden bg-[color:var(--os-bg)] z-10 pointer-events-auto"
+              >
+                <div className="drag-handle cursor-move h-7 title-bar flex items-center justify-between px-1 m-1 shrink-0">
                   <div className="flex items-center gap-2 px-1">
                     <span className="material-symbols-outlined text-sm">
                       description
@@ -389,9 +424,11 @@ const RetroPortfolio = () => {
                   <div className="flex items-center gap-1">
                     <button
                       onClick={() => setIsExperienceOpen(false)}
-                      className="w-5 h-5 win95-raised flex items-center justify-center hover:brightness-110 active:translate-x-px active:translate-y-px"
+                      onMouseDown={stopDrag}
+                      onTouchStart={stopDrag}
+                      className="w-5 h-5 win95-raised flex items-center justify-center hover:brightness-110 ml-1 active:translate-x-px active:translate-y-px"
                     >
-                      <span className="material-symbols-outlined text-[10px] font-bold text-[color:var(--os-text)]">
+                      <span className="material-symbols-outlined text-[10px] font-bold">
                         close
                       </span>
                     </button>
@@ -442,17 +479,23 @@ const RetroPortfolio = () => {
                   </ul>
                 </div>
               </div>
-            </div>
+            </Draggable>
           )}
 
           {/* ========================================== */}
           {/* WINDOW 3: SKILLS.EXE */}
           {/* ========================================== */}
           {isSkillsOpen && (
-            <div className="absolute top-20 left-12 sm:top-24 sm:left-48 flex items-center justify-center z-30">
-              <div className="w-[85vw] sm:w-[450px] window-bevel shadow-[4px_4px_0px_#000000] flex flex-col max-h-[75vh] overflow-hidden bg-[color:var(--os-bg)]">
-                {/* Title Bar */}
-                <div className="h-7 title-bar flex items-center justify-between px-1 m-1 shrink-0">
+            <Draggable
+              nodeRef={welcomeRef}
+              handle=".drag-handle"
+              bounds="parent"
+            >
+              <div
+                ref={skillsRef}
+                className="absolute top-16 sm:top-24 left-6 sm:left-[30%] w-[90vw] sm:w-[450px] window-bevel shadow-[4px_4px_0px_#000000] flex flex-col max-h-[75vh] overflow-hidden bg-[color:var(--os-bg)] z-30 pointer-events-auto"
+              >
+                <div className="drag-handle cursor-move h-7 title-bar flex items-center justify-between px-1 m-1 shrink-0">
                   <div className="flex items-center gap-2 px-1">
                     <span className="material-symbols-outlined text-sm">
                       settings
@@ -464,9 +507,11 @@ const RetroPortfolio = () => {
                   <div className="flex items-center gap-1">
                     <button
                       onClick={() => setIsSkillsOpen(false)}
-                      className="w-5 h-5 win95-raised flex items-center justify-center hover:brightness-110 active:translate-x-px active:translate-y-px"
+                      onMouseDown={stopDrag}
+                      onTouchStart={stopDrag}
+                      className="w-5 h-5 win95-raised flex items-center justify-center hover:brightness-110 ml-1 active:translate-x-px active:translate-y-px"
                     >
-                      <span className="material-symbols-outlined text-[10px] font-bold text-[color:var(--os-text)]">
+                      <span className="material-symbols-outlined text-[10px] font-bold">
                         close
                       </span>
                     </button>
@@ -584,17 +629,23 @@ const RetroPortfolio = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </Draggable>
           )}
 
           {/* ========================================== */}
           {/* WINDOW 4: WORKS.EXE (MS PAINT STYLE) */}
           {/* ========================================== */}
           {isWorksOpen && (
-            <div className="absolute top-8 left-4 sm:top-12 sm:left-16 flex items-center justify-center z-40">
-              <div className="w-[95vw] sm:w-[750px] window-bevel shadow-[4px_4px_0px_#000000] flex flex-col h-[85vh] sm:h-[600px] bg-[color:var(--os-bg)]">
-                {/* Paint Title Bar */}
-                <div className="h-7 title-bar flex items-center justify-between px-1 m-1 shrink-0">
+            <Draggable
+              nodeRef={welcomeRef}
+              handle=".drag-handle"
+              bounds="parent"
+            >
+              <div
+                ref={worksRef}
+                className="absolute top-2 sm:top-12 left-1 sm:left-16 w-[98vw] sm:w-[750px] window-bevel shadow-[4px_4px_0px_#000000] flex flex-col h-[85vh] sm:h-[600px] bg-[color:var(--os-bg)] z-40 pointer-events-auto"
+              >
+                <div className="drag-handle cursor-move h-7 title-bar flex items-center justify-between px-1 m-1 shrink-0">
                   <div className="flex items-center gap-2 px-1">
                     <span className="material-symbols-outlined text-sm">
                       palette
@@ -616,9 +667,11 @@ const RetroPortfolio = () => {
                     </button>
                     <button
                       onClick={() => setIsWorksOpen(false)}
-                      className="w-5 h-5 win95-raised flex items-center justify-center hover:brightness-110 active:translate-x-px active:translate-y-px"
+                      onMouseDown={stopDrag}
+                      onTouchStart={stopDrag}
+                      className="w-5 h-5 win95-raised flex items-center justify-center hover:brightness-110 ml-1 active:translate-x-px active:translate-y-px"
                     >
-                      <span className="material-symbols-outlined text-[10px] font-bold text-[color:var(--os-text)]">
+                      <span className="material-symbols-outlined text-[10px] font-bold">
                         close
                       </span>
                     </button>
@@ -736,17 +789,19 @@ const RetroPortfolio = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </Draggable>
           )}
 
           {/* ========================================== */}
           {/* WINDOW 5: CMD / CHATBOT */}
           {/* ========================================== */}
           {isCmdOpen && (
-            <div className="absolute top-16 left-4 sm:top-20 sm:left-[30%] flex items-center justify-center z-50">
-              <div className="w-[95vw] sm:w-[500px] window-bevel shadow-[4px_4px_0px_#000000] flex flex-col h-[60vh] sm:h-[400px] bg-[color:var(--os-bg)]">
-                {/* CMD Title Bar */}
-                <div className="h-7 title-bar flex items-center justify-between px-1 m-1 shrink-0">
+            <Draggable nodeRef={cmdRef} handle=".drag-handle" bounds="parent">
+              <div
+                ref={cmdRef}
+                className="absolute top-24 left-4 sm:left-[35%] w-[90vw] sm:w-[500px] window-bevel shadow-[4px_4px_0px_#000000] flex flex-col h-[60vh] sm:h-[400px] bg-[color:var(--os-bg)] z-50 pointer-events-auto"
+              >
+                <div className="drag-handle cursor-move h-7 title-bar flex items-center justify-between px-1 m-1 shrink-0">
                   <div className="flex items-center gap-2 px-1">
                     <span className="material-symbols-outlined text-sm">
                       terminal
@@ -758,9 +813,11 @@ const RetroPortfolio = () => {
                   <div className="flex items-center gap-1">
                     <button
                       onClick={() => setIsCmdOpen(false)}
-                      className="w-5 h-5 win95-raised flex items-center justify-center hover:brightness-110 active:translate-x-px active:translate-y-px"
+                      onMouseDown={stopDrag}
+                      onTouchStart={stopDrag}
+                      className="w-5 h-5 win95-raised flex items-center justify-center hover:brightness-110 ml-1 active:translate-x-px active:translate-y-px"
                     >
-                      <span className="material-symbols-outlined text-[10px] font-bold text-[color:var(--os-text)]">
+                      <span className="material-symbols-outlined text-[10px] font-bold">
                         close
                       </span>
                     </button>
@@ -800,10 +857,48 @@ const RetroPortfolio = () => {
                   <div ref={chatEndRef} />
                 </div>
               </div>
-            </div>
+            </Draggable>
           )}
         </main>
-
+        {/* Navigation Drawer (Start Menu) */}
+        {isStartMenuOpen && (
+          <div
+            ref={startMenuRef}
+            className="absolute bottom-10 left-1 z-[60] w-64 flex flex-col shadow-2xl win95-raised font-['Space_Grotesk'] text-sm"
+          >
+            <div className="title-bar p-2 w-full flex items-center gap-3">
+              <div className="w-8 h-8 rounded-none win95-sunken flex items-center justify-center overflow-hidden bg-[color:var(--os-bg)]">
+                <span className="material-symbols-outlined text-[color:var(--os-text)]">
+                  person
+                </span>
+              </div>
+              <div>
+                <div className="font-bold text-xs">CREATIVE_PRO</div>
+                <div className="text-[10px] opacity-70">v1.0 ONLINE</div>
+              </div>
+            </div>
+            <div className="flex flex-col p-1 gap-1">
+              <div className="flex items-center gap-3 p-2 hover:bg-[color:var(--os-title-bg)] hover:text-white cursor-pointer group">
+                <span className="material-symbols-outlined text-blue-500 group-hover:text-white">
+                  apps
+                </span>
+                <span>Programs</span>
+              </div>
+              <div className="flex items-center gap-3 p-2 hover:bg-[color:var(--os-title-bg)] hover:text-white cursor-pointer group">
+                <span className="material-symbols-outlined text-yellow-600 group-hover:text-white">
+                  description
+                </span>
+                <span>Documents</span>
+              </div>
+              <div className="flex items-center gap-3 p-2 hover:bg-[color:var(--os-title-bg)] hover:text-white cursor-pointer group border-t border-[color:var(--border-shadow)] mt-1">
+                <span className="material-symbols-outlined text-gray-500 group-hover:text-white">
+                  settings
+                </span>
+                <span>Settings</span>
+              </div>
+            </div>
+          </div>
+        )}
         {/* Taskbar */}
         <nav className="relative w-full z-50 flex justify-start items-center gap-1 px-1 h-10 border-t-2 border-[color:var(--border-light)] shadow-none shrink-0 bg-[color:var(--os-bg)] text-[color:var(--os-text)]">
           <button
