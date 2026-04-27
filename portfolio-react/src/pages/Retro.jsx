@@ -1,5 +1,5 @@
 // import React, { useState, useEffect, useRef } from "react";
-import Draggable from "react-draggable";
+
 // import useStore from '../utils/store';
 import useStore from "../utils/store";
 import AppBar from "../components/appbar";
@@ -67,56 +67,7 @@ const RetroPortfolio = () => {
   // const toggleStartMenu = () => setIsStartMenuOpen(!isStartMenuOpen);
   // console.log(isStartMenuOpen);
   // // Paint Toolbar Icons
-  // const paintTools = [
-  //   "star",
-  //   "crop_free",
-  //   "ink_eraser",
-  //   "format_color_fill",
-  //   "colorize",
-  //   "search",
-  //   "edit",
-  //   "brush",
-  //   "air",
-  //   "text_fields",
-  //   "horizontal_rule",
-  //   "timeline",
-  //   "crop_square",
-  //   "polyline",
-  //   "circle",
-  //   "category",
-  // ];
-
-  // // Paint Color Swatches
-  // const paintColors = [
-  //   "#000000",
-  //   "#808080",
-  //   "#800000",
-  //   "#808000",
-  //   "#008000",
-  //   "#008080",
-  //   "#000080",
-  //   "#800080",
-  //   "#808040",
-  //   "#004040",
-  //   "#0080ff",
-  //   "#004080",
-  //   "#4000ff",
-  //   "#804000",
-  //   "#ffffff",
-  //   "#c0c0c0",
-  //   "#ff0000",
-  //   "#ffff00",
-  //   "#00ff00",
-  //   "#00ffff",
-  //   "#0000ff",
-  //   "#ff00ff",
-  //   "#ffff80",
-  //   "#00ff80",
-  //   "#80ffff",
-  //   "#8080ff",
-  //   "#ff0080",
-  //   "#ff8040",
-  // ];
+  
 
   // const handleCommandSubmit = (e) => {
   //   if (e.key === "Enter" && currentCommand.trim() !== "") {
